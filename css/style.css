@@ -1,0 +1,75 @@
+:root {
+    --c1: #fff;
+    --c2: #000;
+    --c3: #eeeeee;
+    --c4: #000;
+    --c5: #fff;
+}
+
+body {
+    font-family: 'Kavoon', cursive;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 10px;
+    margin: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.hidden {
+    display: hidden;
+}
+
+#game-container{
+    display: flex;
+    width: 900px;
+}
+
+#store {
+    background-color: var(--c1);
+    width: 300px;
+}
+
+#click-area {
+    background-color: var(--c2);
+    width: 300px;
+    border: 4px solid var(--c3);
+
+}
+
+#scoreboard {
+    background-color: var(--c3);
+    width: 300px;
+
+}
+
+#achievements {
+    background-color: var(--c3);
+
+}
+
+.click-item{
+
+}
+
+.achievement {
+    position: absolute;
+}
+
+.title {
+    text-align: center; 
+    border-bottom: 2px solid var(--c3);
+    font-size: 5.625em;
+    font-weight: bold;
+}
+
