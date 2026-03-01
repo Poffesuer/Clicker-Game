@@ -1,69 +1,90 @@
 :root {
     --c1: #fff;
     --c2: #000;
-    --c3: #eeeeee;
+    --c3: #271501;
     --c4: #000;
-    --c5: #fff;
+    --c5: white;
 }
 
-body {
+body, html {
     font-family: 'Kavoon', cursive;
     font-size: 16px;
     line-height: 1.5;
-    padding: 10px;
     margin: 0;
-}
-
-.flex {
-    display: flex;
+    overflow: hidden;
+    height : 100%;
+    width : 100%;
 }
 
 .row {
+    display: flex;
     flex-direction: row;
 }
 
 .col {
+    display: flex;
     flex-direction: column;
 }
 
 .hidden {
-    display: hidden;
+    display: none;
 }
 
 #game-container{
     display: flex;
-    width: 900px;
+    flex : 1;
+    min-width: 900px;
+    height: 100%;
 }
 
 #store {
-    background-color: var(--c1);
+    background-color: var(--c2);
+    border: 4px solid var(--c3);
+    overflow-y: auto;
     width: 300px;
+    height: 100%;
+}
+
+#store::-webkit-scrollbar {
+    width: 8px;
+}
+
+#store::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 1px;
 }
 
 #click-area {
     background-color: var(--c2);
-    width: 300px;
     border: 4px solid var(--c3);
-
+    padding: 20px;
+    align-items: center;
+    flex: 1;
+    gap: 10%;
+    min-width: 300px;
+    height: 100%;
 }
 
 #scoreboard {
-    background-color: var(--c3);
-    width: 300px;
-
+    background-color: var(--c2);
+    border: 4px solid var(--c3);
+    min-width: 300px;
+    height: 100%;
 }
 
 #achievements {
-    background-color: var(--c3);
-
+    background-color: var(--c1);
+    border: 4px solid var(--c3);
+    width: 300px;
 }
 
 #money-display {
-    
+    color : white;
 }
 
-.click-item{
-
+.img {
+ width : 200px;
+ height: 200px;
 }
 
 .achievement {
@@ -73,19 +94,19 @@ body {
 .title {
     text-align: center; 
     border-bottom: 2px solid var(--c3);
-    font-size: 5.625em;
+    font-size: 4.625em;
     font-weight: bold;
 }
 
 .upgrade-rectangle {
     display: flex;
     align-items: center;
-    width: 300px;
+    width : 80%;
     height: 100px;
     border: 2px solid white;
     border-radius: 8px;
     margin: 10px;
-    padding: 10px;
+    padding: 20px 20px;
     background-color: black;
     cursor: pointer;
     transition: background-color 0.2s;
@@ -107,14 +128,14 @@ body {
 .upgrade-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 10px;
     height: 100%;
 }
 
 .upgrade-name {
     font-weight: bold;
     font-size: 1.2em;
-    margin-bottom: 5px;
+    color: white;
 }
 
 .upgrade-desc {
@@ -123,6 +144,7 @@ body {
 }
 
 .upgrade-cost {
+    margin-left: auto;
     font-weight: bold;
     text-align: right;
     color: red;

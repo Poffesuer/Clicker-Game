@@ -1,24 +1,6 @@
 import { Upgrades } from './modules/Upgrades.js';
 
-function main() {
-    let game = {
-        money            : 0,
-        moneyPerClick    : 1,
-        moneyPerInterval : 0,
-        interval         : 5000,
-    }
-
-    let upgrades = [
-        new Upgrades("iron", "images/bag.png", 10, 2, NaN),
-        new Upgrades("gold", "images/bag.png", 100, 4, NaN),
-        new Upgrades("diamond","images/bag.png", 1000, 10, NaN),
-
-        new Upgrades("dave","images/bag.png", 100, 0, 5000),
-        new Upgrades("josh","images/bag.png", 500, 0, 4000),
-        new Upgrades("leon","images/bag.png", 2000, 0, 1000),
-    ]
-
-    const store = document.getElementById("store");
+function createUpgrade(game, upgrades) {
 
     upgrades.forEach((u,i) => {
         const rect = document.createElement("div");
@@ -44,22 +26,65 @@ function main() {
 
         const cost = document.createElement("div");
         cost.className = "upgrade-cost";
-        cost.textContent = `${u.cost} cookies`;
-        info.appendChild(cost);
+        cost.textContent = `$${u.cost}`;
 
         rect.appendChild(info);
 
+        rect.appendChild(cost);
+
         rect.addEventListener("click", () => {
-            if (game.cookies >= u.cost) {
-                game.cookies -= u.cost;
+            if (u.buy(game)) {
                 rect.style.display = "none";
             }
         });
 
-    document.body.appendChild(rect);
-
-    })
+        document.getElementById("store").appendChild(rect);
+    });
 }
 
+function update(game, upgrades) {
 
-window.addEventListener("load", main());
+    const money = document.getElementById("money-display");
+    money.textContent = game.money;
+
+    upgrades.forEach((u,i) => {
+
+        const rect = document.getElementById(`upgrade${i}`);
+        if (!rect) return;
+        
+        const cost = rect.querySelector(".upgrade-cost");
+    
+        if (game.money >= u.cost) {
+            cost.style.color = "green";
+        } else {
+            cost.style.color = "red";
+        }
+    });
+}
+
+function main() {
+    let game = {
+        money            : 0,
+        moneyPerClick    : 1,
+        moneyPerInterval : 0,
+        interval         : 5000,
+    }
+
+    let upgrades = [
+        new Upgrades("iron", "images/bag.png", "+2", 10, 2, NaN),
+        new Upgrades("gold", "images/bag.png", "+4", 100, 4, NaN),
+        new Upgrades("diamond","images/bag.png", "+5", 1000, 10, NaN),
+
+        new Upgrades("dave","images/bag.png", "5 sec", 100, 0, 5000),
+        new Upgrades("josh","images/bag.png", "4 sec", 500, 0, 4000),
+        new Upgrades("leon","images/bag.png", "1 sec", 2000, 0, 1000),
+    ]
+    
+    createUpgrade(game, upgrades);
+
+    setInterval(()=>{
+        update(game, upgrades);
+    }, 100);
+}
+
+window.addEventListener("load", main);

@@ -1,4 +1,4 @@
-class Achievements {
+export class Achievements {
 
     constructor(name, description, img, condition){
         this.description = description;

@@ -5,7 +5,7 @@
         <title>Incremental Game</title>
         
         <link rel="stylesheet" href="css/style.css">
-        <script src="js/game.js"></script>
+        <script type="module" src="js/game.js"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Kavoon&display=swap" rel="stylesheet">
     </head>
@@ -14,19 +14,20 @@
         <div id="game-container">
 
             <div id="store" class="col">
-                <span class="title">Store</span>
-                
 
             </div>
             <div id="click-area" class="col">
-                <span class="title">Click Area</span>
-                <img src="images/bag.png" alt="punching bag">
+                <span id="money-display">0</span>
+                <img class="img" src="images/bag.png" alt="punching bag">
 
             </div>
+
+            <div id="achievements" class="hidden">
+
+            </div>
+
             <div id="scoreboard" class="col">
-
-            </div>
-            <div id="achievements">
+                
 
             </div>
 
