@@ -14,21 +14,41 @@
         <div id="game-container">
 
             <div id="store" class="col">
-
-            </div>
-            <div id="click-area" class="col">
-                <span id="money-display">0</span>
-                <img class="img" src="images/bag.png" alt="punching bag">
-
+                <div class="title">Store</div>
             </div>
 
-            <div id="achievements" class="hidden">
-
+            <div id="middle-container">
+                <div id="click-area" class="col">
+                    <div id="money-header">
+                        <div id="money-display">
+                            $ <span id="money">0</span>
+                        </div>
+                        <h3 style="color:white"><i>Auto Click  </i><span id="interval-display">NaN</span>s</h3>
+                    </div>
+                    <img id="click-item" src="images/rock.png" alt="rock">
+                </div>
+                <div id="achievements">
+                    <div class="title" style="background-color: var(--c3); font-size: 2rem; padding: 10px;">Achievements</div>
+                </div>
+                <div id="achievement-popup" class="hidden"></div>
+                <div id="achievement-tooltip" class="hidden"></div>
+                <div id="help-panel" class="hidden"></div>
             </div>
-
+            
+            
             <div id="scoreboard" class="col">
-                
+                <div class="title" style="background-color: var(--c3);">Scoreboard <button id="help-button">HELP</button> </div>
+                <div id="stats">
+                    <p>Total Money: <span id="total-money">0</span></p>
+                    <p>Click Value: <span id="click-value">0</span></p>
+                </div>
+                <h2 style="line-height:0;">Upgrades</h2>
+                <div id="ore-board">
 
+                </div>
+                <div id="miner-board">
+
+                </div>
             </div>
 
         </div>

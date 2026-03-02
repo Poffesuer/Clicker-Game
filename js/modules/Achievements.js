@@ -5,10 +5,12 @@ export class Achievements {
         this.condition = condition;
         this.img = img;
         this.name = name;
+        this.unlocked = false;
     }
 
     check(game) {
-        if (this.condition()) {
+        if (!this.unlocked && this.condition(game)) {
+            this.unlocked = true;
             return true;
         }
         return false;
